@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object-Oriented Programming Concepts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Object-Oriented Programming Concepts</h1>
+
+        <section>
+            <h2>1. Classes and Objects</h2>
+            <h3>Class</h3>
+            <p>A class is a blueprint for creating objects. It defines a data type by bundling data and methods that work on that data. In Python, you define a class using the <code>class</code> keyword.</p>
+            <pre><code class="python">
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def bark(self):
+        return "Woof!"
+            </code></pre>
+            <p>Here, <code>Dog</code> is a class with an initializer method (<code>__init__</code>) and a method (<code>bark</code>).</p>
+            <h3>Object</h3>
+            <p>An object is an instance of a class. It represents a specific realization of the class. For example, you can create an object of the Dog class:</p>
+            <pre><code class="python">
+my_dog = Dog(name="Buddy", age=5)
+            </code></pre>
+            <p><code>my_dog</code> is an object of the Dog class.</p>
+        </section>
+
+        <section>
+            <h2>2. Encapsulation</h2>
+            <p>Encapsulation refers to the bundling of data (attributes) and methods (functions) that operate on the data into a single unit, or class. It also involves restricting access to some of the object's components, which is known as data hiding.</p>
+            <h3>Attributes</h3>
+            <p>Variables that belong to a class.</p>
+            <pre><code class="python">
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+            </code></pre>
+            <h3>Methods</h3>
+            <p>Functions defined inside a class that operate on the attributes.</p>
+            <pre><code class="python">
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+    def display_info(self):
+        return f"{self.make} {self.model}"
+            </code></pre>
+            <p><code>display_info</code> is a method that uses the <code>make</code> and <code>model</code> attributes.</p>
+        </section>
+
+        <section>
+            <h2>3. Inheritance</h2>
+            <p>Inheritance is a mechanism for creating a new class that is based on an existing class. The new class (subclass) inherits attributes and methods from the existing class (superclass).</p>
+            <pre><code class="python">
+class Animal:
+    def speak(self):
+        return "Some sound"
+
+class Dog(Animal):
+    def bark(self):
+        return "Woof!"
+            </code></pre>
+            <p>Here, <code>Dog</code> inherits from <code>Animal</code>, so it gets the <code>speak</code> method from <code>Animal</code> and can also define its own methods like <code>bark</code>.</p>
+        </section>
+
+        <section>
+            <h2>4. Polymorphism</h2>
+            <p>Polymorphism allows objects of different classes to be treated as objects of a common superclass. It refers to the way different classes can share methods with the same name but different implementations.</p>
+            <pre><code class="python">
+class Cat(Animal):
+    def speak(self):
+        return "Meow"
+
+def make_animal_speak(animal):
+    return animal.speak()
+
+cat = Cat()
+dog = Dog()
+
+print(make_animal_speak(cat))  # Output: Meow
+print(make_animal_speak(dog))  # Output: Some sound
+            </code></pre>
+            <p>Here, <code>make_animal_speak</code> can call <code>speak</code> on any <code>Animal</code> object, and the specific implementation of <code>speak</code> depends on the actual type of the object.</p>
+        </section>
+
+        <section>
+            <h2>5. Abstraction</h2>
+            <p>Abstraction is the concept of hiding the complex implementation details and showing only the necessary features of an object. It helps to reduce complexity and allows the programmer to focus on interactions at a higher level.</p>
+            <pre><code class="python">
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+            </code></pre>
+            <p><code>Shape</code> is an abstract class that defines an abstract method <code>area</code>, which must be implemented by any subclass like <code>Rectangle</code>.</p>
+        </section>
+
+        <section>
+            <h2>Summary</h2>
+            <ul>
+                <li>Classes define blueprints for objects.</li>
+                <li>Objects are instances of classes.</li>
+                <li>Encapsulation groups data and methods and restricts access.</li>
+                <li>Inheritance allows new classes to inherit from existing ones.</li>
+                <li>Polymorphism enables objects of different classes to be treated as objects of a common superclass.</li>
+                <li>Abstraction hides complex implementation details and exposes only necessary features.</li>
+            </ul>
+            <p>OOP helps manage and structure code in a way that is intuitive and aligns with real-world concepts, making it easier to develop, maintain, and extend software.</p>
+        </section>
+    </div>
+</body>
+</html>
